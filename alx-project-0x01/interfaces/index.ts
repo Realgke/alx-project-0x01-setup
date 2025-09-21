@@ -63,9 +63,8 @@ export interface UserData {
   };
 }
 
-// props the modal will receive from the parent page
 export interface UserModalProps {
-  isOpen: boolean; // show / hide modal
-  onClose: () => void; // function to close modal
-  onAddUser: (newUser: UserData) => void; // callback when form is submitted
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: (post: UserProps) => void;
 }
