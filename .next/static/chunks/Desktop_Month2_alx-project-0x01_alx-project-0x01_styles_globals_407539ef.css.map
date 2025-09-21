@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///home/coo-wanjohi/Desktop/Month2/alx-project-0x01/alx-project-0x01/styles/globals.css"],"sourcesContent":["/*! tailwindcss v4.1.13 | MIT License | https://tailwindcss.com */\n@layer properties;\n.mt-auto {\n  margin-top: auto;\n}\n.flex {\n  display: flex;\n}\n.h-screen {\n  height: 100vh;\n}\n.items-center {\n  align-items: center;\n}\n.justify-center {\n  justify-content: center;\n}\n.border {\n  border-style: var(--tw-border-style);\n  border-width: 1px;\n}\n.antialiased {\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n@property --tw-border-style {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: solid;\n}\n@layer properties {\n  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {\n    *, ::before, ::after, ::backdrop {\n      --tw-border-style: solid;\n    }\n  }\n}\n"],"names":[],"mappings":"AACA;EA8BE;IACE;;;;IAAA;;;;;;AA9BJ;;;;AAGA;;;;AAGA;;;;AAGA;;;;AAGA;;;;AAGA;;;;;AAIA;;;;;AAIA","debugId":null}}]
-}

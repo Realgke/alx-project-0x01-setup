@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/coo-wanjohi/Desktop/Month2/alx-project-0x01/alx-project-0x01/pages/index.tsx"],"sourcesContent":["const Home: React.FC = () => {\n  return (\n    <div className=\"flex justify-center items-center h-screen\">\n      <h1 className=\"text-7xl font-thin\">Welcome Page</h1>\n    </div>\n  );\n};\n\nexport default Home;\n"],"names":[],"mappings":";;;;;;AAAA,MAAM,OAAiB;IACrB,qBACE,qKAAC;QAAI,WAAU;kBACb,cAAA,qKAAC;YAAG,WAAU;sBAAqB;;;;;;;;;;;AAGzC;uCAEe","debugId":null}}]
-}
