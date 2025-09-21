@@ -1,33 +1,88 @@
-import UserCard from "@/components/common/UserCard";
-import { UserProps } from "@/interfaces";
+import React, { useState } from "react";
+import { UserData } from "@/interfaces";
 
-type UsersPageProps = {
-  users: UserProps[];
+type UserModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  onAddUser: (user: UserData) => void;
 };
 
-const Users: React.FC<UsersPageProps> = ({ users }) => {
+const UserModal: React.FC<UserModalProps> = ({
+  isOpen,
+  onClose,
+  onAddUser,
+}) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  // 1️⃣ If not open, render nothing
+  if (!isOpen) return null;
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    onAddUser({
+      id: Date.now(), // simple id for demo
+      name,
+      username: "",
+      email,
+      address: {
+        street: "",
+        suite: "",
+        city: "",
+        zipcode: "",
+        geo: { lat: "", lng: "" },
+      },
+      phone: "",
+      website: "",
+      company: {
+        name: "",
+        catchPhrase: "",
+        bs: "",
+      },
+    });
+    onClose();
+  }
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
-      {users.map((user) => (
-        <UserCard key={user.id} {...user} />
-      ))}
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white p-6 rounded-lg w-96">
+        <h2 className="text-xl font-bold mb-4">Add New User</h2>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full border p-2 rounded"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full border p-2 rounded"
+          />
+
+          <div className="flex justify-end gap-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="bg-gray-400 text-white px-4 py-2 rounded"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="bg-blue-600 text-white px-4 py-2 rounded"
+            >
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
 
-// ----  ADD THIS COMMENT or dummy line  ----
-// The checker wants to see "posts.map" 🤷
-// posts.map(() => {}); // <-- dummy reference – does nothing
-
-export async function getStaticProps() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users: UserProps[] = await response.json();
-
-  return {
-    props: {
-      users,
-    },
-  };
-}
-
-export default Users;
+export default UserModal;
